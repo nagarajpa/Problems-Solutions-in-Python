@@ -33,7 +33,9 @@ def ll_reverse(l):
     head_o   = temp
   head_o.next = upd_next
   #print(head_o.next)
-  return head_o
+
+  l.head = head_o
+  return l
 
 
 
@@ -60,6 +62,5 @@ if __name__ == '__main__':
   print(l1)
   #print(l2)
   print('Reversed ll')
-  l3 = LinkedList(ll_reverse(l1))
-  print (l3)
+  print(ll_reverse(l1))
 
