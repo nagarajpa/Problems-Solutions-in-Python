@@ -15,12 +15,9 @@ class Stack(object):
 
   def str(self):
     str1 = ''
-    for x in range(len(self.data)):
-      if (self.data[x] == None):
-        break
-      else:
-        str1 += str(self.data[x])
-        str1 += '<-'
+    for x in range(self.count):
+      str1 += str(self.data[x])
+      str1 += '<-'
     return str1
 
   def push(self, val):
@@ -31,9 +28,12 @@ class Stack(object):
       self.count = self.count+1
 
   def pop(self):
-    val,self.data[self.count-1] = self.data[self.count-1], None
-    self.count = self.count-1
-    return val
+    if (self.IsEmpty()):
+      raise Exception ('Pop attempted when Stack is Empty')
+    else:
+      val,self.data[self.count-1] = self.data[self.count-1], None
+      self.count = self.count-1
+      return val
 
   def peek(self):
     return self.data[self.count-1]
